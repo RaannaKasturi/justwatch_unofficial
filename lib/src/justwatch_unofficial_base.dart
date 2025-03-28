@@ -232,10 +232,10 @@ class Scoring {
     if (json == null) return Scoring();
     return Scoring(
       imdbScore: (json['imdbScore'] as num?)?.toDouble(),
-      imdbVotes: json['imdbVotes'] as int?,
+      imdbVotes: (json['imdbVotes'] as num?)?.toInt(), // Safe conversion
       tmdbPopularity: (json['tmdbPopularity'] as num?)?.toDouble(),
       tmdbScore: (json['tmdbScore'] as num?)?.toDouble(),
-      tomatometer: json['tomatoMeter'] as int?,
+      tomatometer: (json['tomatoMeter'] as num?)?.toInt(), // Fix applied here
       certifiedFresh: json['certifiedFresh'] as bool?,
       jwRating: (json['jwRating'] as num?)?.toDouble(),
     );
